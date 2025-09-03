@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import api from './api';
+import api from '../api';
 
 const UpdateMember = ({member, onClose, onUpdate}) => {
     const [formData, setFormData] = useState(member);

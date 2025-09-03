@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import api from './api';
+import api from '../api';
 import UpdateMember from './UpdateMember';
 import '../css/member.css';
 import * as XLSX from 'xlsx';
