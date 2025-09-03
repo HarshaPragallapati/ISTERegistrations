@@ -10,7 +10,11 @@ const cookieParser = require('cookie-parser');
 // dotenv.config();
 
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_ORIGIN, 
+  credentials: true,
+  methods: ['GET','POST','PUT','DELETE','OPTIONS']
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
