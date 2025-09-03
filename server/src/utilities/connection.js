@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const url = "mongodb+srv://akireddyvaraprasad58_db_user:0niyeZE1bIWZYqF0@cluster0.lyka01a.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const url = process.env.MONGODB_URI;
 
 const registrationSchema = new mongoose.Schema({
   name: { type: String, required: [true, "Required field"] },

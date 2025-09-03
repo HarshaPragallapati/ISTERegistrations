@@ -18,6 +18,11 @@ app.use(cookieParser());
 app.use('/',router);
 // app.use(errorLogger);
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ ok: true });
+});
 
-app.listen(4000);
-console.log("App listening in the port 4000");
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`App listening on ${PORT}`));

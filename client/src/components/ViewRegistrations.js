@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from './api';
 import UpdateMember from './UpdateMember';
 import '../css/member.css';
 import * as XLSX from 'xlsx';
@@ -36,7 +36,7 @@ const ViewRegistrations = () => {
 
     const fetchRegistrations = async () => {
         try {
-            const response = await axios.get('http://localhost:4000/members');
+            const response = await api.get('/members');
             setRegistrations(response.data.members);
         } catch (error) {
             console.error('Error fetching registrations:', error);
@@ -48,7 +48,7 @@ const ViewRegistrations = () => {
     const handleDelete = async (memId) => {
         if (!window.confirm('Are you sure you want to delete this Member?')) return;
         try {
-            await axios.delete(`http://localhost:4000/deleteMember/${memId}`);
+            await api.delete(`/deleteMember/${memId}`);
             setRegistrations(registrations.filter(reg => reg._id !== memId));
         } catch (error) {
             console.error('Error deleting registration:', error);

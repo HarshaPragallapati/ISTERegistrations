@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
+import api from './api';
 
 const RegistrationForm = () => {
     const [formData, setFormData] = useState({
@@ -64,7 +64,7 @@ const RegistrationForm = () => {
 
         if (Object.keys(newErrors).length === 0) {
             try {
-                const response = await axios.post('http://localhost:4000/register', formData);
+                const response = await api.post('/register', formData);
                 setSuccessMessage(response.data.message);
                 setErrorMessage('');
                 setFormData({

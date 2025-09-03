@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
+import api from './api';
 
 const UpdateMember = ({member, onClose, onUpdate}) => {
     const [formData, setFormData] = useState(member);
@@ -56,7 +56,7 @@ const UpdateMember = ({member, onClose, onUpdate}) => {
 
         if (Object.keys(newErrors).length === 0) {
             try {
-                const response = await axios.put('http://localhost:4000/updateMember', formData);
+                const response = await api.put('/updateMember', formData);
                 setSuccessMessage(response.data.message || 'Member updated successfully!');
                 setErrorMessage('');
                 onUpdate();
